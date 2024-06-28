@@ -1,9 +1,15 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import HomePage from "./pages/HomePage";
+import TasksPage from "./pages/TasksPage";
 
 function App() {
   return (
     <>
-      <h2>To-Do app</h2>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/tasks" element={<TasksPage />} />
+      </Routes>
     </>
   );
 }
