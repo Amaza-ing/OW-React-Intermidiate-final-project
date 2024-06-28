@@ -4,17 +4,23 @@ const TaskContext = createContext();
 
 function TaskProviderWrapper(props) {
   const [tasks, setTasks] = useState([]);
+  const [hasLoaded, setLoaded] = useState(false);
+  const [hasError, setError] = useState(false);
 
   const API_URL = "https://ca5f63dffc6a5f0f7362.free.beeceptor.com/api/tasks/";
 
   const getTasks = async () => {
-    console.log("get Tasks");
+    if (hasLoaded) return;
+
     try {
+      console.log("get Tasks");
       const response = await fetch(API_URL);
       const data = await response.json();
       setTasks(data.reverse());
+      setLoaded(true);
+      setError(false);
     } catch (e) {
-      console.log(e);
+      setError(true);
     }
   };
 
@@ -25,8 +31,9 @@ function TaskProviderWrapper(props) {
         body: JSON.stringify(newTask),
       });
       setTasks([newTask, ...tasks]);
+      setError(false);
     } catch (e) {
-      console.log(e);
+      setError(true);
     }
   };
 
@@ -41,7 +48,7 @@ function TaskProviderWrapper(props) {
 
   return (
     <TaskContext.Provider
-      value={{ tasks, setTasks, getTasks, addTask, updateTask }}
+      value={{ tasks, setTasks, hasLoaded, hasError, getTasks, addTask, updateTask }}
     >
       {props.children}
     </TaskContext.Provider>
