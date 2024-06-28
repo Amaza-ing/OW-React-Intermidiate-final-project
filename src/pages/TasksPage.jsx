@@ -3,6 +3,7 @@ import { useContext } from "react";
 import HeaderComponent from "../components/HeaderComponent";
 import { TaskContext } from "../context/task.context";
 import TaskCard from "../components/TaskCard";
+import CreateTask from "../components/CreateTask";
 
 function TasksPage() {
   const { tasks } = useContext(TaskContext);
@@ -18,7 +19,12 @@ function TasksPage() {
       <HeaderComponent></HeaderComponent>
       <section id="tasks-page">
         <h2 className="title">Tasks</h2>
-        <ul className="task-list">{taskCards}</ul>
+        <ul className="task-list">
+          <li>
+            <CreateTask></CreateTask>
+          </li>
+          {taskCards}
+        </ul>
       </section>
     </>
   );

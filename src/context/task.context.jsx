@@ -37,8 +37,12 @@ function TaskProviderWrapper(props) {
     setTasks(uptadedTasks);
   };
 
+  const addTask = (newTask) => {
+    setTasks([newTask, ...tasks]);
+  };
+
   return (
-    <TaskContext.Provider value={{ tasks, setTasks, updateTask }}>
+    <TaskContext.Provider value={{ tasks, setTasks, updateTask, addTask }}>
       {props.children}
     </TaskContext.Provider>
   );

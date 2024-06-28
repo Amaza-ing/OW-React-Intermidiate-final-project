@@ -13,8 +13,21 @@
     font-size: 1.2rem;
     font-weight: bold;
   }
+
+  [type="checkbox"] {
+    transform: scale(2) translateX(-2px);
+  }
 }
 .task-card:hover {
   border: 3px solid black;
   box-shadow: 0 0 10px;
+}
+.task-card:has(input:checked) {
+  text-decoration: line-through;
+  border: 3px solid lightgray;
+  background-color: lightgray;
+  
+  .card-title {
+    font-weight: 100;
+  }
 }
