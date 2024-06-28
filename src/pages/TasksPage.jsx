@@ -1,12 +1,16 @@
 import "./TasksPage.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import HeaderComponent from "../components/HeaderComponent";
 import { TaskContext } from "../context/task.context";
 import TaskCard from "../components/TaskCard";
 import CreateTask from "../components/CreateTask";
 
 function TasksPage() {
-  const { tasks } = useContext(TaskContext);
+  const { tasks, getTasks } = useContext(TaskContext);
+
+  useEffect(() => {
+    getTasks();
+  }, []);
 
   const taskCards = tasks.map((task) => (
     <li key={task.id}>
