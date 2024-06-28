@@ -1,0 +1,20 @@
+.task-card {
+  width: 400px;
+  background-color: lightyellow;
+  border: 3px solid darkblue;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.2s;
+
+  .card-title {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+.task-card:hover {
+  border: 3px solid black;
+  box-shadow: 0 0 10px;
+}
