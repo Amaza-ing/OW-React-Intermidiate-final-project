@@ -22,15 +22,17 @@ function TasksPage() {
     <>
       <HeaderComponent></HeaderComponent>
       <section id="tasks-page">
-        <h2 className="title">Tasks</h2>
+        <h2 className="title" data-testid="tasks-title">
+          Tasks
+        </h2>
         <ul className="task-list">
           <li>
             <CreateTask></CreateTask>
           </li>
           {hasError ? (
-            <h2>No se han podido obtener las tareas</h2>
+            <h2 data-testid="error-msg">No se han podido obtener las tareas</h2>
           ) : !hasLoaded ? (
-            <h2>Cargando...</h2>
+            <h2 data-testid="loading-msg">Cargando...</h2>
           ) : (
             taskCards
           )}
