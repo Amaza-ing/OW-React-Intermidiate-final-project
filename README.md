@@ -21,7 +21,7 @@
   </a>
 </h3>
 <h4>Espero que lo disfrutes ;)</h4>
-<divclassName="links">
+<div>
   <h5>
     <a href="https://www.youtube.com/@AMaza-Ing" target="_blank">
       YouTube/AMaza-ing
