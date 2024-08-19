@@ -9,7 +9,7 @@
   También puedes ver las ramas desde una terminal en Visual Studio Code
   o el editor de código que utilices escribiendo el siguiente comando:
 </h4>
-  <pre>git branch</pre>
+  <pre>git branch -a</pre>
 <h4>
   Puedes moverte a cada rama escribiendo el comando:
 </h4>
